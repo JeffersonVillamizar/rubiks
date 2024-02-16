@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rubik's</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="/styles/style.css" />
  
   
   <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'><link rel="stylesheet" href="./style.css">
@@ -17,7 +17,10 @@
 <body>
   <nav class="nav">
     <i class="uil uil-bars navOpenBtn"></i>
-    <a href="#" class="logo">RUBIK's </a>
+    <div class="logo_name1">
+      <i class="fab fa-slack"></i>
+      <span class="logo_name1">Rubik's</span>
+    </div>
 
     <ul class="nav-links">
       <i class="uil uil-times navCloseBtn"></i>
@@ -79,6 +82,19 @@
 <section id="faqs" class="py-5 m-auto">
   
 </section>
+<div id="loader">
+  <main>
+    <div class="hand">
+      <span class="finger thumb"></span>
+      <span class="finger"></span>
+      <span class="finger"></span>
+      <span class="finger"></span>
+      <span class="finger"></span>
+      <span class="palm"></span>
+    </div>
+  </main>
+</div>
+
 
 <footer>
   <div class="content">
@@ -113,6 +129,24 @@
       "<object data='nav.html'>";
   }
   load_templates();
+
+  window.addEventListener('load', function() {
+    // Esconde el loader una vez que la página haya terminado de cargar
+    document.getElementById('loader').style.display = 'none';
+  });
+
+  document.addEventListener('DOMContentLoaded', function() {
+    // Obtiene todos los elementos de enlace
+    const links = document.querySelectorAll('.nav-links a');
+
+    // Agrega un evento de clic a cada enlace
+    links.forEach(function(link) {
+      link.addEventListener('click', function() {
+        // Muestra el loader cuando se hace clic en un enlace
+        document.getElementById('loader').style.display = 'block';
+      });
+    });
+  });
 </script>
 </body>
 
