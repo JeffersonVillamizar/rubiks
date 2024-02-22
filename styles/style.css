@@ -157,10 +157,20 @@ a {
 body, html{
   scroll-padding-top: 62px;
   overflow-x: hidden;
+  background-image: url(../imagenes/cubo.jpg);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  height: 100px;
+  display: flex;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 main{
-  background: linear-gradient(to left, hsla(236, 98%, 44%, 0.377), #04ff008e),url('../imagenes/cubo.jpg'); 
-  background-position: center;
+ 
+ 
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
@@ -184,7 +194,7 @@ main{
 }
 
 .main__btns a:nth-child(2){
-  background-color: darkorange;
+  background-color: rgb(255, 4, 4);
 }
 
 .brands img{
@@ -196,26 +206,9 @@ main{
   height: 80px;
 }
 
-.banner2{
-  background: linear-gradient(to left, hsla(0, 0%, 100%, 0.377), #e3f02c8e),url('../imagenes/cubo.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
-  height: 400px;
-}
 
-#productos{
-  max-width: 70%;
-}
 
-.banner3{
-  background: linear-gradient(to left, hsla(22, 100%, 53%, 0.377), #ff00008e),url('../imagenes/cubo.jpg');
-  background-attachment: fixed;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 400px;
-}
+
 
 #faqs{
   width: 60%;
@@ -472,101 +465,111 @@ footer .bottom-details .bottom_text {
 }
 
 
-.hand {
-  width: 16em;
-  height: 8em;
-  font-size: 10px;
+
+
+
+/* bodyloader */
+
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+bodyloader {
+  height: 100vh;
+  padding: 2rem;
+  display: grid;
+
+  place-items: center;
+  text-align: center;
+  background-color: #9eaff8;
+}
+
+.loader {
+  display: none;
+  position: fixed;
+  z-index: -1; /* Ajusta el z-index para que esté detrás del contenido de la página */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.dot {
   position: relative;
-  color: darksalmon;
+  display: inline-block;
+  padding: 25px;
+  height: 157px;
+  width: 50px;
 }
-
-.hand::before {
-  content: '';
+.dot:before {
   position: absolute;
-  width: 14em;
-  height: 4.5em;
-  background-color: black;
-  border-radius: 4em 1em;
-  top: 4em;
-  filter: blur(1em) opacity(0.3);
+  content: "";
+  display: block;
+  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #9eaff8;
+  transform-origin: 50%;
+  animation: bounce 0.5s alternate infinite ease;
 }
 
-.palm {
-  position: absolute;
-  width: 8em;
-  height: 6em;
-  background-color: currentColor;
-  border-radius: 1em 4em;
-  right: 0;
+.dot:nth-child(1):before {
+  background-color: #ff0101;
+  animation-delay: 0s;
 }
 
-.thumb {
-  position: absolute;
-  width: 9.6em;
-  height: 3.2em;
-  background-color: currentColor;
-  border-radius: 3em 2em 2em 1em;
-  right: 0;
-  bottom: 1em;
-  transform-origin: calc(100% - 2em) 2em;
-  transform: rotate(-20deg);
-  border-bottom: 0.2em solid rgba(0, 0, 0, 0.1);
-  border-left: 0.2em solid rgba(0, 0, 0, 0.1);
+.dot:nth-child(2):before {
+  background-color: #ffe600;
+  animation-delay: -0.8s;
 }
 
-.thumb::before {
-  content: '';
-  position: absolute;
-  width: 1.9em;
-  height: 1.9em;
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 60% 10% 10% 30%;
-  bottom: -0.3em;
-  left: 0.5em;
-  border-right: 0.1em solid rgba(0, 0, 0, 0.1);
+.dot:nth-child(3):before {
+  background-color: #51ff00;
+  animation-delay: -1.6s;
 }
 
-.finger:not(:first-child) {
-  position: absolute;
-  width: 6.4em;
-  height: 3.5em;
-  background-color: currentColor;
-  right: 5.2em;
-  bottom: 4em;
-  transform-origin: 100% 2em;
-  transform: rotate(10deg);
-  --scale: calc(1 - (5 - var(--n)) * 0.2);
-  transform: rotate(10deg) scale(var(--scale));
-  filter: brightness(calc(100% - (5 - var(--n)) * 10%));
-  animation: tap-upper 1.2s ease-in-out infinite;
-  animation-delay: calc((var(--n) - 2) * 0.1s);
+.dot:nth-child(4):before {
+  background-color: #ffffff;
+  animation-delay: -2.4s;
 }
 
-@keyframes tap-upper {
-  0%, 50%, 100% {
-      transform: rotate(10deg) scale(var(--scale));
+.dot:nth-child(5):before {
+  background-color: #0f0bec;
+  animation-delay: -3.2s;
+}
+
+.dot:nth-child(6):before {
+  background-color: #ff5e00;
+  animation-delay: -4s;
+}
+
+.dot:nth-child(7):before {
+  background-color: #ff0101;
+  animation-delay: -4.8s;
+}
+
+.dot:nth-child(8):before {
+  background-color: #ffe600;
+  animation-delay: -5.6s;
+}
+
+.dot:nth-child(9):before {
+  background-color: #51ff00;
+  animation-delay: -6.4s;
+}
+
+@keyframes bounce {
+  0% {
+    top: 150px;
+    height: 5px;
+    border-radius: 60px 60px 20px 20px;
+    transform: scaleX(2);
   }
-
-  40% {
-      transform: rotate(50deg) scale(var(--scale));
+  35% {
+    height: 50px;
+    border-radius: 50%;
+    transform: scaleX(1);
+  }
+  100% {
+    top: 0;
   }
 }
-
-.finger:not(:first-child)::before {
-  content: '';
-  position: absolute;
-  width: 9em;
-  height: 3em;
-  background-color: currentColor;
-  right: 4.2em;
-  top: 0.2em;
-  border-radius: 2em;
-  transform-origin: calc(100% - 2em) 2em;
-  transform: rotate(-60deg);
-}
-
-.finger:nth-child(2) { --n: 2; }
-.finger:nth-child(3) { --n: 3; }
-.finger:nth-child(4) { --n: 4; }
-.finger:nth-child(5) { --n: 5; }
-
