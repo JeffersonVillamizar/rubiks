@@ -28,7 +28,7 @@
       <li><a href="index.html">Inicio </a></li>
       <li><a href="#">Servicios </a></li>
       <li><a href="productos.html">Productos</a></li>
-      <li><a href="nosotros">Nosotros</a></li>
+      <li><a href="">Nosotros</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
 
@@ -43,40 +43,64 @@
 
 
 
+ <!-- partial:index.partial.html -->
+ <div id="loader" class="loader">
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+  <div class="dot"></div>
+</div>
+<!-- partial -->
+
 <footer>
-  <div class="content">
-    <div class="top">
-      <div class="logo-details">
-        <i class="fab fa-slack"></i>
-        <span class="logo_name">Rubik's</span>
-      </div>
-      <div class="media-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
-      </div>
+<div class="content">
+  <div class="top">
+    <div class="logo-details">
+      <i class="fab fa-slack"></i>
+      <span class="logo_name">Rubik's</span>
     </div>
-   
-  </div>
-  <div class="bottom-details">
-    <div class="bottom_text">
-      <span class="copyright_text">Copyright © 2024 <a href="#">Rubik's </a>All rights reserved</span>
-      <span class="policy_terms">
-        <a href="#">Privacy policy</a>
-        <a href="#">Terms & condition</a>
-      </span>
+    <div class="media-icons">
+      <a href="#"><i class="fab fa-facebook-f"></i></a>
+      <a href="#"><i class="fab fa-twitter"></i></a>
+      <a href="#"><i class="fab fa-instagram"></i></a>
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
     </div>
   </div>
+</div>
+<div class="bottom-details">
+  <div class="bottom_text">
+    <span class="copyright_text">Copyright © 2024 <a href="#">Rubik's </a>All rights reserved</span>
+    <span class="policy_terms">
+      <a href="#">Privacy policy</a>
+      <a href="#">Terms & condition</a>
+    </span>
+  </div>
+</div>
 </footer>
 <script>
-  function load_templates() {
-    document.getElementById("nav").innerHTML =
-      "<object data='nav.html'>";
-  }
-  load_templates();
+// Oculta el loader una vez que la página haya terminado de cargar
+window.addEventListener('load', function() {
+  document.getElementById('loader').style.display = 'none';
+});
+
+// Agrega un evento de clic a cada enlace del menú
+document.querySelectorAll('.nav-links a').forEach(function(link) {
+  link.addEventListener('click', function(event) {
+    // Muestra el loader
+    document.getElementById('loader').style.display = 'block';
+
+    // Oculta el loader después de 3 segundos
+    setTimeout(function() {
+      document.getElementById('loader').style.display = 'none';
+    }, 3000);
+  });
+});
 </script>
 </body>
-
 </html>
