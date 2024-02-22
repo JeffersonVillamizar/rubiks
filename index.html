@@ -21,7 +21,6 @@
       <i class="fab fa-slack"></i>
       <span class="logo_name1">Rubik's</span>
     </div>
-
     <ul class="nav-links">
       <i class="uil uil-times navCloseBtn"></i>
       <li><a href="index.html">Inicio </a></li>
@@ -30,119 +29,76 @@
       <li><a href="nosotros">Nosotros</a></li>
       <li><a href="contacto.html">Contacto</a></li>
     </ul>
-
     <i class="uil uil-search search-icon" id="searchIcon"></i>
     <div class="search-box">
       <i class="uil uil-search search-icon"></i>
       <input type="text" placeholder="Search here..." />
     </div>
   </nav>
-
-</html>
-
-<main>
-  <p class="h3 text-light"></p>
-  <h1 class="display-1 text-light cursive">RUBIK's</h1>
-  <div class="main__btns d-flex gap-3">
-   
-    
-  </div>
-</main>
-
-
-
-<aside id="nosotros" class="py-5 px-2">
-  <h2 class="text-center h1">Nosotros</h2>
-  <p class="container text-center">Nos apasiona la resolución de problemas y la promoción de actividades lúdicas y
-    mentales. Nuestra misión es hacer que la experiencia de jugar con cubos Rubik sea accesible y divertida para todos
-    los edades. Con años de experiencia en el mercado, nos hemos convertido en una confianza para los amantes de los
-    cubos Rubik. Valoramos la satisfacción del cliente y nos esforzamos por ofrecer productos de alta calidad y un
-    excelente servicio.</p>
-  
-</aside>
-
-
-<section class="banner2 d-flex align-items-center justify-content-center">
-  <p class="display-1 text-light text-center cursive"></p>
-</section>
-
-
-
-<!-- BANNER 3 -->
-<section class="banner3 d-flex align-items-center justify-content-center">
-  <p class="display-1 text-light cursive"></p>
-</section>
-
-<!-- FAQS -->
-<section id="faqs" class="py-5 m-auto">
-  
-</section>
-<div id="loader">
-  <main>
-    <div class="hand">
-      <span class="finger thumb"></span>
-      <span class="finger"></span>
-      <span class="finger"></span>
-      <span class="finger"></span>
-      <span class="finger"></span>
-      <span class="palm"></span>
+  <bodyloader>
+    <!-- partial:index.partial.html -->
+    <div id="loader" class="loader">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
     </div>
-  </main>
-</div>
-
-
-<footer>
-  <div class="content">
-    <div class="top">
-      <div class="logo-details">
-        <i class="fab fa-slack"></i>
-        <span class="logo_name">Rubik's</span>
-      </div>
-      <div class="media-icons">
-        <a href="#"><i class="fab fa-facebook-f"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
-        <a href="#"><i class="fab fa-instagram"></i></a>
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-youtube"></i></a>
+    <!-- partial -->
+  </bodyloader>
+  <footer>
+    <div class="content">
+      <div class="top">
+        <div class="logo-details">
+          <i class="fab fa-slack"></i>
+          <span class="logo_name">Rubik's</span>
+        </div>
+        <div class="media-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-github"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
       </div>
     </div>
-   
-  </div>
-  <div class="bottom-details">
-    <div class="bottom_text">
-      <span class="copyright_text">Copyright © 2024 <a href="#">Rubik's </a>All rights reserved</span>
-      <span class="policy_terms">
-        <a href="#">Privacy policy</a>
-        <a href="#">Terms & condition</a>
-      </span>
+    <div class="bottom-details">
+      <div class="bottom_text">
+        <span class="copyright_text">Copyright © 2024 <a href="#">Rubik's </a>All rights reserved</span>
+        <span class="policy_terms">
+          <a href="#">Privacy policy</a>
+          <a href="#">Terms & condition</a>
+        </span>
+      </div>
     </div>
-  </div>
-</footer>
-<script>
-  function load_templates() {
-    document.getElementById("nav").innerHTML =
-      "<object data='nav.html'>";
-  }
-  load_templates();
+  </footer>
+  <script>
+    // Oculta el loader una vez que la página haya terminado de cargar
+    window.addEventListener('load', function() {
+      document.getElementById('loader').style.display = 'none';
+    });
 
-  window.addEventListener('load', function() {
-    // Esconde el loader una vez que la página haya terminado de cargar
-    document.getElementById('loader').style.display = 'none';
-  });
-
-  document.addEventListener('DOMContentLoaded', function() {
-    // Obtiene todos los elementos de enlace
-    const links = document.querySelectorAll('.nav-links a');
-
-    // Agrega un evento de clic a cada enlace
-    links.forEach(function(link) {
-      link.addEventListener('click', function() {
-        // Muestra el loader cuando se hace clic en un enlace
-        document.getElementById('loader').style.display = 'block';
+    document.addEventListener('DOMContentLoaded', function() {
+      // Obtiene todos los elementos de enlace
+      const links = document.querySelectorAll('.nav-links a');
+      // Agrega un evento de clic a cada enlace
+      links.forEach(function(link) {
+        link.addEventListener('click', function(event) {
+          // Muestra el loader cuando se hace clic en un enlace
+          document.getElementById('loader').style.display = 'block';
+          // Oculta el loader después de 3 segundos
+          setTimeout(function() {
+            document.getElementById('loader').style.display = 'none';
+          }, 3000);
+          // Previene el comportamiento predeterminado del enlace
+          event.preventDefault();
+        });
       });
     });
-  });
-</script>
+  </script>
 </body>
-
 </html>
